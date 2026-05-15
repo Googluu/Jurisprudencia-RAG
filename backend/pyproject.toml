@@ -1,0 +1,34 @@
+[project]
+name = "backend"
+version = "1.0.0"
+description = "RAG API para jurisprudencia de la Corte Suprema de Justicia"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "fastapi>=0.136.1",
+    "google-genai>=2.3.0",
+    "lxml>=6.1.0",
+    "numpy>=2.4.4",
+    "pandas>=3.0.3",
+    "pydantic-settings>=2.14.1",
+    "python-dotenv>=1.2.2",
+    "rank-bm25>=0.2.2",
+    "sse-starlette>=3.4.4",
+    "uvicorn[standard]>=0.47.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.0.3",
+    "pytest-asyncio>=1.3.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+

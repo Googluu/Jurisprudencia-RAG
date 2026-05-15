@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - FRONTEND_ORIGIN=http://localhost:3000
+    volumes:
+      # Persist generated CSV + embeddings so they survive container restarts
+      - ./backend/data:/app/data
+      # Mount the HTML corpus read-only
+      - ./documentos para prueba:/docs:ro
+    env_file:
+      - ./backend/.env
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
