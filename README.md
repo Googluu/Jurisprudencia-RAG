@@ -41,7 +41,7 @@ prueba-esguerra/
 ### 1. Clonar repo - Variables de entorno
 
 ```bash
-git clone git@github.com:Googluu/prueba-fullstack-sneyder-huertas.git
+git clone git@github.com:Googluu/Jurisprudencia-RAG.git
 cd backend
 uv sync
 # backend/.env
